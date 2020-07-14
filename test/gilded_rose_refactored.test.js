@@ -1,4 +1,4 @@
-import {GildedRose, NormalItem} from "../src/gilded_rose_refactored";
+import {GildedRose, NormalItem, AgedBrie} from "../src/gilded_rose_refactored";
 
 describe("Gilded Rose", () => {
   describe("Normal Item", () => {
@@ -18,6 +18,26 @@ describe("Gilded Rose", () => {
       const gildedRose = new GildedRose([new NormalItem(10, 0)]);
       const [item] = gildedRose.updateQuality();
       expect(item.quality).toBe(0);
+    });
+  });
+
+  describe("Aged Brie", () => {
+    it("quality increases by 1 every day till sellIn is negative", () => {
+      const gildedRose = new GildedRose([new AgedBrie(10, 4)]);
+      const [agedBrie] = gildedRose.updateQuality();
+      expect(agedBrie.quality).toBe(5);
+    });
+
+    it("quality increases by 2 if sellIn is negative", () => {
+      const gildedRose = new GildedRose([new AgedBrie(-1, 4)]);
+      const [agedBrie] = gildedRose.updateQuality();
+      expect(agedBrie.quality).toBe(6);
+    });
+
+    it("quality maximum is 50", () => {
+      const gildedRose = new GildedRose([new AgedBrie(10, 50)]);
+      const [agedBrie] = gildedRose.updateQuality();
+      expect(agedBrie.quality).toBe(50);
     });
   });
 });
