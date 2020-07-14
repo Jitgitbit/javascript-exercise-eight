@@ -2,28 +2,36 @@ git init
 git add .
 git commit -m 'first'
 gst
-(first)
+[COMMIT 1]: (first)
 git remote add origin git@github.com:Jitgitbit/javascript-exercise-eight.git
 git push -u origin master
 
 npm init
 npm install --save-dev jest
-(prepped for jest)
+[COMMIT 2]: (prepped for jest)
 
 
 -> Once the sell by date has passed, quality degrades twice as fast, on sell date ?  -> the given code includes the selling date !
-(tests for "Normal Items" on original code added)
+[COMMIT 3]: (tests for "Normal Items" on original code added)
 --> "Aged Brie" actually increases in Quality the older it gets ! --> the given code shows it 2x on sell date and after !
-(tests for "Aged Brie" on original code added)
-(tests for "Sulfuras" on original code added)
+[COMMIT 4]: (tests for "Aged Brie" on original code added)
+[COMMIT 5]: (tests for "Sulfuras" on original code added)
 ---> "Quality drops to 0 during the concert, on sell date !" ---> the given code includes the sell date !
-(tests for "Backstage Pass" on original code added)
-(code cleanup)
+[COMMIT 6]: (tests for "Backstage Pass" on original code added)
+[COMMIT 7]: (code cleanup)
 
 
 npm install babel-core --save-dev
 npm install @babel/preset-env --save-dev
-(prepped for babel)
+[COMMIT 8]: (prepped for babel)
 
 
-(refactored "Normal Item" + test)
+[COMMIT 9]: (refactored "Normal Item" + test)
+----------
+to watch testrun for the refactored code specifically:
+npm run test:watch + enter
+press p to filter by filename
+type for pattern: gilded_rose_refactored.test.js + enter
+when done, control + c to exit
+----------
+[COMMIT 10]: (important note on running test:watch added)
