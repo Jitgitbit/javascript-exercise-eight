@@ -15,3 +15,5 @@ npm install --save-dev jest
 --> "Aged Brie" actually increases in Quality the older it gets ! --> the given code shows it 2x on sell date and after !
 (tests for "Aged Brie" on original code added)
 (tests for "Sulfuras" on original code added)
+---> "Quality drops to 0 during the concert, on sell date !" ---> the given code includes the sell date !
+(tests for "Backstage Pass" on original code added)

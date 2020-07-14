@@ -131,4 +131,64 @@ describe("Gilded Rose", function() {
       expect(updatedItem.sellIn).toBe(-3);
     });
   });
+
+  describe("Backstage Pass", () => {
+    it("Backstage passes, like aged brie, increases in quality as its sellIn value approaches, by 1, when more than 10 days before sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 20, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(10);
+    });
+    it("Backstage passes increases in quality as its sellIn value approaches, by 2 when between 10 and 5 days before sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(11);
+    });
+    it("Backstage passes increases in quality as its sellIn value approaches, by 3 when 5 or less days before sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(12);
+    });
+    it("Quality drops to 0 during the concert, on sell date !", () => {                   //---> see comments !
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(0);
+    });
+    it("Quality drops to 0 after the concert, after sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", -3, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(0);
+    });
+
+    it("At the end of each day our system lowers sellIn for every item by 1 (except sulfuras), before sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.sellIn).toBe(9);
+    });
+    it("At the end of each day our system lowers sellIn for every item by 1 (except sulfuras), on sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.sellIn).toBe(-1);
+    });
+    it("At the end of each day our system lowers sellIn for every item by 1 (except sulfuras), after sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", -3, 9);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.sellIn).toBe(-4);
+    });
+
+    it("The quality of an item is never more than 50 (except sulfuras), including when more than 10 days before sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 20, 50);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(50);
+    });
+    it("The quality of an item is never more than 50 (except sulfuras), including when between 10 and 5 days before sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(50);
+    });
+    it("The quality of an item is never more than 50 (except sulfuras), including when 5 or less days before sell date", () => {
+      const item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(50);
+    });
+  });
 });
