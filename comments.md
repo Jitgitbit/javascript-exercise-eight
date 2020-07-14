@@ -2,12 +2,13 @@ git init
 git add .
 git commit -m 'first'
 gst
-
+(first)
 git remote add origin git@github.com:Jitgitbit/javascript-exercise-eight.git
 git push -u origin master
 
 npm init
 npm install --save-dev jest
+(prepped for jest)
 
 
 -> Once the sell by date has passed, quality degrades twice as fast, on sell date ?  -> the given code includes the selling date !
@@ -19,5 +20,10 @@ npm install --save-dev jest
 (tests for "Backstage Pass" on original code added)
 (code cleanup)
 
+
 npm install babel-core --save-dev
 npm install @babel/preset-env --save-dev
+(prepped for babel)
+
+
+(refactored "Normal Item" + test)
