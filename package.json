@@ -1,0 +1,27 @@
+{
+  "name": "javascript-exercise-eight",
+  "version": "1.0.0",
+  "description": "This is the Gilded Rose kata in JavaScript with Jest",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jitgitbit/javascript-exercise-eight.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jitgitbit/javascript-exercise-eight/issues"
+  },
+  "homepage": "https://github.com/Jitgitbit/javascript-exercise-eight#readme",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
