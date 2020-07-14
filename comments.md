@@ -12,7 +12,7 @@ npm install --save-dev jest
 
 
 COMMENT ON CODE:
-===============
+---------------
 -> Once the sell by date has passed, quality degrades twice as fast, on sell date ?  -> the given code includes the selling date !
 [COMMIT 3]: (tests for "Normal Items" on original code added)
 --> "Aged Brie" actually increases in Quality the older it gets ! --> the given code shows it 2x on sell date and after !
@@ -21,7 +21,7 @@ COMMENT ON CODE:
 ---> "Quality drops to 0 during the concert, on sell date !" ---> the given code includes the sell date !
 [COMMIT 6]: (tests for "Backstage Pass" on original code added)
 [COMMIT 7]: (code cleanup)
-===============
+---------------
 
 npm install babel-core --save-dev
 npm install @babel/preset-env --save-dev
@@ -52,3 +52,4 @@ when done, control + c to exit
 [COMMIT 16]: (refactored "Backstage Pass" a bit more, all tests green)
 
 [COMMIT 17]: (README updated)
+[COMMIT 18]: (coverage folder deleted)
