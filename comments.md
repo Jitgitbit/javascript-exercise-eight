@@ -44,3 +44,5 @@ when done, control + c to exit
 [COMMIT 11]: (refactored "Aged Brie" + test)
 [COMMIT 12]: (refactored "Sulfuras" + test)
 [COMMIT 13]: (refactored "Backstage Pass" + test)
+
+[COMMIT 14]: (new class ConjuredItem for "Conjured" added + test)

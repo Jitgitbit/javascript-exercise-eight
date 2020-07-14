@@ -114,3 +114,16 @@ export class BackstagePass extends Item {
     return this.sellIn < 0;
   }
 }
+
+export class ConjuredItem extends NormalItem {
+  constructor(sellIn, quality) {
+    super(sellIn, quality);
+    this.name = "Conjured";
+  }
+
+  lowerQuality() {
+    if (this.quality > minQuality) {
+      this.quality = this.quality - 2;
+    }
+  }
+}

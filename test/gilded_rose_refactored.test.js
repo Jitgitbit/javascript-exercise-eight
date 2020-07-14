@@ -1,4 +1,4 @@
-import {GildedRose, NormalItem, AgedBrie, SulfurasItem, BackstagePass} from "../src/gilded_rose_refactored";
+import {GildedRose, NormalItem, AgedBrie, SulfurasItem, BackstagePass, ConjuredItem} from "../src/gilded_rose_refactored";
 
 describe("Gilded Rose", () => {
   describe("Normal Item", () => {
@@ -86,6 +86,26 @@ describe("Gilded Rose", () => {
       const gildedRose = new GildedRose([new BackstagePass(-3, 4)]);
       const [backstagePass] = gildedRose.updateQuality();
       expect(backstagePass.quality).toBe(0);
+    });
+  });
+
+  describe("Conjured", () => {
+    it("quality lowered by 2 per day when sellIn is not negative", () => {
+      const gildedRose = new GildedRose([new ConjuredItem(10, 4)]);
+      const [item] = gildedRose.updateQuality();
+      expect(item).toMatchObject({ sellIn: 9, quality: 2 });
+    });
+
+    it("quality lowered by 4 per day when sellIn is negative", () => {
+      const gildedRose = new GildedRose([new ConjuredItem(-1, 4)]);
+      const [item] = gildedRose.updateQuality();
+      expect(item.quality).toBe(0);
+    });
+
+    it("quality is never negative", () => {
+      const gildedRose = new GildedRose([new ConjuredItem(10, 0)]);
+      const [item] = gildedRose.updateQuality();
+      expect(item.quality).toBe(0);
     });
   });
 });
