@@ -1,0 +1,1 @@
+import {GildedRose} from "../src/gilded_rose_refactored";

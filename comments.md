@@ -18,3 +18,6 @@ npm install --save-dev jest
 ---> "Quality drops to 0 during the concert, on sell date !" ---> the given code includes the sell date !
 (tests for "Backstage Pass" on original code added)
 (code cleanup)
+
+npm install babel-core --save-dev
+npm install @babel/preset-env --save-dev
