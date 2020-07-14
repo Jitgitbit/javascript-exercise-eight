@@ -38,7 +38,9 @@ press p to filter by filename
 type for pattern: gilded_rose_refactored.test.js + enter
 when done, control + c to exit
 --------------
+
 [COMMIT 10]: (important note on running test:watch added)
 
 [COMMIT 11]: (refactored "Aged Brie" + test)
 [COMMIT 12]: (refactored "Sulfuras" + test)
+[COMMIT 13]: (refactored "Backstage Pass" + test)

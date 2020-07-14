@@ -79,3 +79,38 @@ export class SulfurasItem extends Item {
     return this;
   }
 }
+
+export class BackstagePass extends Item {
+  constructor(sellIn, quality) {
+    super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
+  }
+
+  updateQuality() {
+    this.increaseQuality();
+    if (this.sellIn <= 10) {
+      this.increaseQuality();
+    };
+    if (this.sellIn <= 5) {
+      this.increaseQuality();
+    };
+    this.lowerSellIn();
+    if (this.isSellInNegative()) {
+      this.setQualityToZero();
+    };
+    return this;
+  }
+  increaseQuality() {
+    if (this.quality < maxQuality) {
+      this.quality = this.quality + 1;
+    }
+  }
+  lowerSellIn() {
+    this.sellIn = this.sellIn - 1;
+  }
+  setQualityToZero() {
+    this.quality = 0;
+  }
+  isSellInNegative() {
+    return this.sellIn < 0;
+  }
+}

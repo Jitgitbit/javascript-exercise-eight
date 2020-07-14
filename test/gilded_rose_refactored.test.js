@@ -1,4 +1,4 @@
-import {GildedRose, NormalItem, AgedBrie, SulfurasItem} from "../src/gilded_rose_refactored";
+import {GildedRose, NormalItem, AgedBrie, SulfurasItem, BackstagePass} from "../src/gilded_rose_refactored";
 
 describe("Gilded Rose", () => {
   describe("Normal Item", () => {
@@ -52,6 +52,40 @@ describe("Gilded Rose", () => {
       const gildedRose = new GildedRose([new SulfurasItem(-1, 80)]);
       const [sulfuras] = gildedRose.updateQuality();
       expect(sulfuras).toMatchObject({ sellIn: -1, quality: 80 });
+    });
+  });
+
+  describe("Backstage Pass", () => {
+    function gradualQualityIncrease(qualityIncrease, sellIn) {
+      it(`quality increases by ${qualityIncrease} when sellIn is ${sellIn}`, () => {
+        const initialQuality = 4;
+        const gildedRose = new GildedRose([
+          new BackstagePass(sellIn, initialQuality)
+        ]);
+        const [backstagePass] = gildedRose.updateQuality();
+        expect(backstagePass.quality).toBe(initialQuality + qualityIncrease);
+      });
+    }
+    gradualQualityIncrease(1, 20);
+    gradualQualityIncrease(1, 19);
+    gradualQualityIncrease(1, 11);
+    gradualQualityIncrease(2, 10);
+    gradualQualityIncrease(2, 9);
+    gradualQualityIncrease(2, 6);
+    gradualQualityIncrease(3, 5);
+    gradualQualityIncrease(3, 3);
+    gradualQualityIncrease(3, 1);
+
+    it("quality becomes 0 when sellIn is 0", () => {
+      const gildedRose = new GildedRose([new BackstagePass(0, 4)]);
+      const [backstagePass] = gildedRose.updateQuality();
+      expect(backstagePass.quality).toBe(0);
+    });
+
+    it("quality is never negative", () => {
+      const gildedRose = new GildedRose([new BackstagePass(-3, 4)]);
+      const [backstagePass] = gildedRose.updateQuality();
+      expect(backstagePass.quality).toBe(0);
     });
   });
 });
