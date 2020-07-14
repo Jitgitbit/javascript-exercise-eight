@@ -97,4 +97,38 @@ describe("Gilded Rose", function() {
       expect(updatedItem.quality).toBe(50);
     });
   });
+
+  describe("Sulfuras", () => {
+    it("Sulfuras quality is 80 and it never alters, including before sell date", () => {
+      const item = new Item("Sulfuras, Hand of Ragnaros", 10, 80);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(80);
+    });
+    it("Sulfuras quality is 80 and it never alters, including on sell date", () => {
+      const item = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(80);
+    });
+    it("Sulfuras quality is 80 and it never alters, including after sell date", () => {
+      const item = new Item("Sulfuras, Hand of Ragnaros", -3, 80);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.quality).toBe(80);
+    });
+
+    it("Sulfuras sellIn never decreases, including before sell date", () => {
+      const item = new Item("Sulfuras, Hand of Ragnaros", 10, 80);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.sellIn).toBe(10);
+    });
+    it("Sulfuras sellIn never decreases, including on sell date", () => {
+      const item = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.sellIn).toBe(0);
+    });
+    it("Sulfuras sellIn never decreases, including after sell date", () => {
+      const item = new Item("Sulfuras, Hand of Ragnaros", -3, 80);
+      const updatedItem = runUpdateQuality(item);
+      expect(updatedItem.sellIn).toBe(-3);
+    });
+  });
 });

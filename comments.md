@@ -14,3 +14,4 @@ npm install --save-dev jest
 (tests for "Normal Items" on original code added)
 --> "Aged Brie" actually increases in Quality the older it gets ! --> the given code shows it 2x on sell date and after !
 (tests for "Aged Brie" on original code added)
+(tests for "Sulfuras" on original code added)
