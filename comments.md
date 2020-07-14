@@ -8,3 +8,6 @@ git push -u origin master
 
 npm init
 npm install --save-dev jest
+
+
+-> Once the sell by date has passed, quality degrades twice as fast, on sell date ?  -> the given code includes the selling date !
