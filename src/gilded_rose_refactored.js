@@ -69,3 +69,13 @@ export class AgedBrie extends Item {
     return this.sellIn < 0;
   }
 }
+
+export class SulfurasItem extends Item {
+  constructor(sellIn, quality) {
+    super("Sulfuras, Hand of Ragnaros", sellIn, quality);
+  }
+
+  updateQuality() {
+    return this;
+  }
+}

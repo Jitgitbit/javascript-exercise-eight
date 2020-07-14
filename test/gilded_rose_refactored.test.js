@@ -1,4 +1,4 @@
-import {GildedRose, NormalItem, AgedBrie} from "../src/gilded_rose_refactored";
+import {GildedRose, NormalItem, AgedBrie, SulfurasItem} from "../src/gilded_rose_refactored";
 
 describe("Gilded Rose", () => {
   describe("Normal Item", () => {
@@ -38,6 +38,20 @@ describe("Gilded Rose", () => {
       const gildedRose = new GildedRose([new AgedBrie(10, 50)]);
       const [agedBrie] = gildedRose.updateQuality();
       expect(agedBrie.quality).toBe(50);
+    });
+  });
+
+  describe("Sulfuras", () => {
+    it("quality and sellIn properties remain unchanged", () => {
+      const gildedRose = new GildedRose([new SulfurasItem(10, 80)]);
+      const [sulfuras] = gildedRose.updateQuality();
+      expect(sulfuras).toMatchObject({ sellIn: 10, quality: 80 });
+    });
+
+    it("quality and sellIn properties remain unchanged, including when sellIn is negative", () => {
+      const gildedRose = new GildedRose([new SulfurasItem(-1, 80)]);
+      const [sulfuras] = gildedRose.updateQuality();
+      expect(sulfuras).toMatchObject({ sellIn: -1, quality: 80 });
     });
   });
 });
