@@ -7,11 +7,6 @@ function runUpdateQuality(item) {
 }
 
 describe("Gilded Rose", function() {
-  // it("should foo", function() {
-  //   const gildedRose = new Shop([new Item("foo", 0, 0)]);
-  //   const items = gildedRose.updateQuality();
-  //   expect(items[0].name).toBe("foo");
-  // });
 
   describe("Normal Item", () => {
     it("At the end of each day our system lowers quality for every item by 1, before sell date", () => {
@@ -159,33 +154,33 @@ describe("Gilded Rose", function() {
       expect(updatedItem.quality).toBe(0);
     });
 
-    it("At the end of each day our system lowers sellIn for every item by 1 (except sulfuras), before sell date", () => {
+    it("At the end of each day our system lowers sellIn for every item by 1, before sell date", () => {
       const item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 9);
       const updatedItem = runUpdateQuality(item);
       expect(updatedItem.sellIn).toBe(9);
     });
-    it("At the end of each day our system lowers sellIn for every item by 1 (except sulfuras), on sell date", () => {
+    it("At the end of each day our system lowers sellIn for every item by 1, on sell date", () => {
       const item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 9);
       const updatedItem = runUpdateQuality(item);
       expect(updatedItem.sellIn).toBe(-1);
     });
-    it("At the end of each day our system lowers sellIn for every item by 1 (except sulfuras), after sell date", () => {
+    it("At the end of each day our system lowers sellIn for every item by 1, after sell date", () => {
       const item = new Item("Backstage passes to a TAFKAL80ETC concert", -3, 9);
       const updatedItem = runUpdateQuality(item);
       expect(updatedItem.sellIn).toBe(-4);
     });
 
-    it("The quality of an item is never more than 50 (except sulfuras), including when more than 10 days before sell date", () => {
+    it("The quality of an item is never more than 50, including when more than 10 days before sell date", () => {
       const item = new Item("Backstage passes to a TAFKAL80ETC concert", 20, 50);
       const updatedItem = runUpdateQuality(item);
       expect(updatedItem.quality).toBe(50);
     });
-    it("The quality of an item is never more than 50 (except sulfuras), including when between 10 and 5 days before sell date", () => {
+    it("The quality of an item is never more than 50, including when between 10 and 5 days before sell date", () => {
       const item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49);
       const updatedItem = runUpdateQuality(item);
       expect(updatedItem.quality).toBe(50);
     });
-    it("The quality of an item is never more than 50 (except sulfuras), including when 5 or less days before sell date", () => {
+    it("The quality of an item is never more than 50, including when 5 or less days before sell date", () => {
       const item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48);
       const updatedItem = runUpdateQuality(item);
       expect(updatedItem.quality).toBe(50);
