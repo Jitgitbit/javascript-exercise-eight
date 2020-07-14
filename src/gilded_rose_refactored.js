@@ -87,16 +87,10 @@ export class BackstagePass extends Item {
 
   updateQuality() {
     this.increaseQuality();
-    if (this.sellIn <= 10) {
-      this.increaseQuality();
-    };
-    if (this.sellIn <= 5) {
-      this.increaseQuality();
-    };
+    if (this.sellIn <= 10) this.increaseQuality();
+    if (this.sellIn <= 5) this.increaseQuality();
     this.lowerSellIn();
-    if (this.isSellInNegative()) {
-      this.setQualityToZero();
-    };
+    if (this.isSellInNegative()) this.setQualityToZero();
     return this;
   }
   increaseQuality() {

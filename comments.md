@@ -48,3 +48,5 @@ when done, control + c to exit
 [COMMIT 14]: (new class ConjuredItem for "Conjured" added + test)
 
 [COMMIT 15]: (coverage test done, green)
+
+[COMMIT 16]: (refactored "Backstage Pass" a bit more, all tests green)
