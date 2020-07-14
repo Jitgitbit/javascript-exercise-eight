@@ -11,3 +11,6 @@ npm install --save-dev jest
 
 
 -> Once the sell by date has passed, quality degrades twice as fast, on sell date ?  -> the given code includes the selling date !
+(tests for "Normal Items" on original code added)
+--> "Aged Brie" actually increases in Quality the older it gets ! --> the given code shows it 2x on sell date and after !
+(tests for "Aged Brie" on original code added)
